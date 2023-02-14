@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purehtml Example</title>
+</head>
+<body>
+  <div id="purehtml-container"></div>
+</body>
+<script entry>
+  const render = ($) => {
+  document.querySelector('#purehtml-container').innerHTML = '这句话来自子应用'
+  return Promise.resolve();
+};
+
+((global) => {
+  global['purehtml'] = {
+    bootstrap: () => {
+      console.log('purehtml bootstrap');
+      return Promise.resolve();
+    },
+    mount: () => {
+      console.log('purehtml mount');
+      return render();
+    },
+    unmount: () => {
+      console.log('purehtml unmount');
+      return Promise.resolve();
+    },
+  };
+})(window);
+</script>
+</html>

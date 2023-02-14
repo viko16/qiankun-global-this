@@ -2,18 +2,21 @@
   "private": true,
   "author": "",
   "scripts": {
-    "dev": "umi dev",
+    "dev": "umi dev & npm run start-sub-app",
+    "start-sub-app": "serve --cors -l 2333 static",
     "build": "umi build",
     "postinstall": "umi setup",
     "setup": "umi setup",
     "start": "npm run dev"
   },
   "dependencies": {
+    "qiankun": "2.9.2",
     "umi": "^4.0.51"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "serve": "^14.2.0",
     "typescript": "^4.1.2"
   }
 }
